@@ -1,0 +1,169 @@
+/* Estilos para la barra de navegación */
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 80px;
+  background-color: white;
+}
+
+.banner {
+  display: flex;
+  justify-content:  center;
+  cursor: pointer;
+}
+
+.banner img {
+  position: relative;
+  margin-top: 10px;
+  margin-bottom: 20px;
+  width: 20%;
+  border: 2px solid black;
+  border-radius: 8px;
+  padding: 4px;
+}
+
+.search-and-user {
+  display: flex;
+  align-items: center;
+  border: 2px solid black;
+  border-radius: 8px;
+}
+
+input[type="text"] {
+  padding: 10px;
+  border-radius: 5px;
+  border: none;
+}
+
+.user-icon {
+  margin-left: 10px;
+  cursor: pointer;
+}
+
+.user-icon img {
+  width: 32px;
+}
+
+/* Estilos para el contenedor principal */
+.container {
+  display: flex;
+  height: 80vh;
+}
+
+.left-container {
+  width: 15%;
+  background-color: #1d1d1d;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.new-canvas {
+  font-size: medium;
+  color: #ffffff;
+  cursor: pointer;
+  font-weight: bold;
+  border: 2px solid #e1e1e1;
+  border-radius: 4px;
+  padding: 6px;
+  margin-bottom: 24px;
+}
+
+.old-canvas {
+  font-size: medium;
+  color: #ffffff;
+  cursor: pointer;
+  border: 2px solid #e1e1e1;
+  border-radius: 4px;
+  padding: 6px;
+  margin-bottom: 8px;
+}
+
+.center-container {
+  width: 65%;
+  background-color: #ffffff;
+  border: 2px solid #1d1d1d;
+}
+
+.text-canvas {
+  margin: 8px 8px;
+  font-size: large;
+}
+
+.right-container {
+  display: flex;
+  flex-direction: column;
+  width: 20%;
+  background-color: #1d1d1d;
+  padding: 20px;
+}
+
+.tools-container {
+  height: 100%;
+  font-size: medium;
+  border: 2px solid #e1e1e1;
+  border-radius: 4px;
+  padding: 6px;
+}
+
+.tools-title {
+  color: white;
+  margin: 8px 0 8px 0;
+  margin-bottom: 24px;
+}
+
+.tools-title p {
+  color: white;
+  margin-bottom: 4px;
+}
+
+.tools-contenedores {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* ajustar el número de columnas aquí */
+  gap: 10px; /* ajustar la separación entre las columnas aquí */
+  color: white;
+  background-color: white;
+  margin: 8px 2px 8px 2px;
+  padding: 2px;
+  margin-bottom: 24px;
+  border: 2px solid #e1e1e1;
+}
+
+.tools-contenedores img {
+  width: 30px; /* ajustar el tamaño de los íconos aquí */
+  height: 30px;
+  cursor: pointer;
+}
+
+/* Estilos para la sección de la marca de autor */
+footer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  font-size: medium;
+  margin-top: 12px;
+}
+
+footer a {
+  color: black;
+}
+.social-media {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.social-media a {
+  margin: 0 10px;
+}
+
+.social-media img {
+  width: 20px;
+}
+
+p {
+  margin: 0;
+  color: black;
+}
