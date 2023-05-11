@@ -1,16 +1,17 @@
+
 /* Estilos para la barra de navegación */
 nav {
   display: flex;
-  justify-content: space-between;
+  justify-content: center; /* Agregado */
   align-items: center;
   height: 80px;
-  background-color: white;
+  padding: 0 20px; /* Agregado */
 }
 
 .banner {
   display: flex;
-  justify-content:  center;
-  cursor: pointer;
+  justify-content: center;
+  align-items: center; /* Agregado */
 }
 
 .banner img {
@@ -21,16 +22,19 @@ nav {
   border: 2px solid black;
   border-radius: 8px;
   padding: 4px;
+  cursor: pointer;
 }
 
 .search-and-user {
-  display: flex;
-  align-items: center;
+  display: flex; /* Agregado */
+  align-items: center; /* Agregado */
   border: 2px solid black;
   border-radius: 8px;
+  width: 30%;
 }
 
 input[type="text"] {
+  flex: 1; /* Agregado */
   padding: 10px;
   border-radius: 5px;
   border: none;
