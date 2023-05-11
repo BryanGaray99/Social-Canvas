@@ -14,7 +14,7 @@
     <img src="assets/user.png" alt="logo" routerLink="/Login" routerLinkActive="active" ariaCurrentWhenActive="page">
   </div>
 </nav>
-  
+
 <!-- Contenedor principal -->
 <div class="container">
 
@@ -28,8 +28,9 @@
 
   <!-- Segundo contenedor central -->
   <div class="center-container">
-    <div class="text-canvas">Whatsapp Groups</div>
-    <div class="canvas">
+    <div class="text-canvas">Whatsapp Groups:</div>
+    <div class="canvas-card">
+      <app-cards [dataEntrante]="cards" *ngFor="let cards of ArregloTarjetas"></app-cards>
     </div>
   </div>
 

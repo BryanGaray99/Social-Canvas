@@ -89,6 +89,7 @@ input[type="text"] {
 .text-canvas {
   margin: 8px 8px;
   font-size: large;
+  font-weight: bold;
 }
 
 .right-container {
@@ -166,4 +167,14 @@ footer a {
 p {
   margin: 0;
   color: black;
+}
+
+
+.canvas-card {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+  /* padding-left: 0rem;
+  padding-bottom: 1rem; */
+  padding: 15px;
 }
