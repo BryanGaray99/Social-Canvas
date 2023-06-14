@@ -9,14 +9,14 @@
     position: absolute;
     left: 30%;
     top: 15%;
-    background-color: #acabab;
+    outline: #62f5af dashed 1px;
 }
 
 .logo {
     position: relative;
     margin-left: 43%;
     margin-top: 10px;
-    margin-bottom: 8px;
+    margin-bottom: 10px;
     width: 15%;
 }
 
@@ -24,7 +24,6 @@
     display: flex;
     justify-content:  center;
     gap: 20px;
-    background-color: #dfdddd;
 }
 
 .inputsPss {
@@ -32,7 +31,6 @@
     display: flex;
     justify-content:  center;
     gap: 20px;
-    background-color: #dfdddd;
 }
 
 .inputsMail img{
@@ -57,6 +55,7 @@
     text-align: center;
     font-size: 15px;
     color: #29a7a3;
+    outline: #687384 solid 1px;
 }
 
 #inputsPss {
@@ -69,6 +68,7 @@
     text-align: center;
     font-size: 15px;
     color: #29a7a3;
+    outline: #687384 solid 1px;
 }
 
 .forgot {
