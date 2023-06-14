@@ -182,3 +182,7 @@ p {
   padding-bottom: 1rem; */
   padding: 15px;
 }
+
+.max-height-img{
+  max-height: 200px;
+}

@@ -1,8 +1,16 @@
-<div class="card lab-shadow">
+<!-- <div class="card lab-shadow">
   <img class="image-group" [src]="dataEntrante.image" alt="">
 
   <div class="wrapper-text">
       <div class="title">{{ dataEntrante.titulo }}</div>
       <div class="sub-title">{{ dataEntrante.subtitulo }}</div>
+  </div>
+</div> -->
+
+<div class="card">
+  <img class="card-img-top img-responsive max-height-img" [src]="dataEntrante.image" alt="Card image cap">
+  <div class="card-body">
+      <h4 class="card-title">{{ dataEntrante.titulo }}</h4>
+      <p class="card-text">{{ dataEntrante.subtitulo }}</p>
   </div>
 </div>

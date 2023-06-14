@@ -1,4 +1,4 @@
-.image-group{
+/* .image-group{
   max-width: 10%;
   max-height: 50%;
   border-radius: 50%;
@@ -20,4 +20,8 @@
 
 .wrapper-text {
   margin-left: 15px;
+} */
+
+.max-height-img{
+  max-height: 200px;
 }
