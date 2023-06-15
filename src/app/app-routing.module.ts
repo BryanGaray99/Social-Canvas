@@ -11,7 +11,7 @@ const routes: Routes = [
     component: PagesComponent,
     children: [
       { path: 'MainPage', component: MainPageComponent },
-      { path: "", redirectTo: "/Login", pathMatch: "full" },
+      { path: "", redirectTo: "/MainPage", pathMatch: "full" },
     ]
   },
 
