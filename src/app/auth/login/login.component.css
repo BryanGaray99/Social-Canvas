@@ -27,19 +27,15 @@ Login register and recover password Page
   height: 100%;
   padding: 10% 0;
   position: fixed;
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
 }
 
 .formulario {
-    margin-top: 140px;
+    margin-top: 60px;
 }
 
 .login-box {
-  padding-top: 30px;
   width: 450px;
-  height: 900px; 
+  margin-top: 30px; 
   margin-left: auto;
   margin-right: 50px;
   border-radius: 24px;
