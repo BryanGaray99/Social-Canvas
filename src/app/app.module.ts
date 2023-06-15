@@ -3,12 +3,15 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule, routingComponents } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { LoginComponent } from './login/login.component';
-import { MainPageComponent } from './main-page/main-page.component';
-import { CardsComponent } from './cards/cards.component';
+import { LoginComponent } from './auth/login/login.component';
+import { MainPageComponent } from './pages/main-page/main-page.component';
+import { CardsComponent } from './pages/cards/cards.component';
 import { HeaderComponent } from './shared/header/header.component';
 import { SidebarComponent } from './shared/sidebar/sidebar.component';
 import { BreadcrumbsComponent } from './shared/breadcrumbs/breadcrumbs.component';
+import { NoPagesFoundComponent } from './pages/no-pages-found/no-pages-found.component';
+import { RegisterComponent } from './auth/register/register.component';
+import { PagesComponent } from './pages/pages/pages.component';
 
 @NgModule({
   declarations: [
@@ -18,6 +21,9 @@ import { BreadcrumbsComponent } from './shared/breadcrumbs/breadcrumbs.component
     HeaderComponent,
     SidebarComponent,
     BreadcrumbsComponent,
+    NoPagesFoundComponent,
+    RegisterComponent,
+    PagesComponent,
   ],
   imports: [
     BrowserModule,
