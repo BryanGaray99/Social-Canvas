@@ -12,6 +12,9 @@ import { BreadcrumbsComponent } from './shared/breadcrumbs/breadcrumbs.component
 import { NoPagesFoundComponent } from './pages/no-pages-found/no-pages-found.component';
 import { RegisterComponent } from './auth/register/register.component';
 import { PagesComponent } from './pages/pages/pages.component';
+import { WsCanvasComponent } from './pages/ws-canvas/ws-canvas.component';
+import { FbCanvasComponent } from './pages/fb-canvas/fb-canvas.component';
+import { IgCanvasComponent } from './pages/ig-canvas/ig-canvas.component';
 
 @NgModule({
   declarations: [
@@ -24,6 +27,9 @@ import { PagesComponent } from './pages/pages/pages.component';
     NoPagesFoundComponent,
     RegisterComponent,
     PagesComponent,
+    WsCanvasComponent,
+    FbCanvasComponent,
+    IgCanvasComponent,
   ],
   imports: [
     BrowserModule,
