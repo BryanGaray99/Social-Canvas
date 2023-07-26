@@ -7,9 +7,18 @@
       <app-breadcrumbs></app-breadcrumbs>
 
       <router-outlet></router-outlet>
-      <div class="row">
-        <app-cards class="col-lg-4 col-md-6" [dataEntrante]="cards" *ngFor="let cards of ArregloTarjetas"></app-cards>
-      </div>
+
+      <ng-container *ngIf="selectedChatOption === 'ws-chats'">
+        <app-ws-canvas></app-ws-canvas>
+      </ng-container>
+
+      <ng-container *ngIf="selectedChatOption === 'fb-canvas'">
+        <app-fb-canvas></app-fb-canvas>
+      </ng-container>
+
+      <ng-container *ngIf="selectedChatOption === 'ig-canvas'">
+        <app-ig-canvas></app-ig-canvas>
+      </ng-container>
 
       <footer class="footer">
         <a routerLink="/Login" routerLinkActive="active" ariaCurrentWhenActive="page">Social Canvas 2023</a>
