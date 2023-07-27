@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
 import { MessageService } from './messages.service';
 import { UserService } from './user.service';
 
@@ -10,6 +9,7 @@ export interface User {
   phone: string;
   image: string;
   roomId: { [key: number]: string };
+  email: string;
 }
 
 export interface Message {
@@ -40,13 +40,15 @@ export class WsCanvasComponent implements OnInit {
   ) {}
   
   ngOnInit(): void {
-    // Establecer el primer usuario como el seleccionado por defecto
-    this.getCurrentUserFromBackend('0983287043'); // Aquí, cambia '0983287043' por el teléfono del usuario actual
-  }
-
-  login(dismiss: any): void {
-    this.getCurrentUserFromBackend(this.phone);
-    dismiss();
+    // Obtener el usuario actual desde el Local Storage
+    const currentUserData = localStorage.getItem('currentUser');
+    if (currentUserData) {
+      this.currentUser = JSON.parse(currentUserData);
+      this.phone = this.currentUser?.phone || '';
+      this.showScreen = true;
+      this.loadUsersFromBackend();
+      this.loadMessagesFromBackend(this.phone);
+    }
   }
 
   selectUserHandler(phone: string): void {
@@ -78,15 +80,6 @@ export class WsCanvasComponent implements OnInit {
   private loadMessagesFromBackend(phone: string): void {
     this.messageService.getMessages(phone).subscribe((messages) => {
       this.messageArray = messages;
-    });
-  }
-
-  private getCurrentUserFromBackend(phone: string): void {
-    this.userService.getCurrentUser(phone).subscribe((user) => {
-      this.currentUser = user;
-      this.showScreen = true;
-      this.loadUsersFromBackend();
-      this.loadMessagesFromBackend(this.currentUser?.phone || '');
     });
   }
 }

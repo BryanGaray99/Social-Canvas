@@ -22,11 +22,13 @@ export class LoginComponent {
 
   onSubmit(): void {
     this.loginService.loginUser(this.loginForm.value).subscribe(data => {
-      if(data?.status >= 300)
-        console.error(data)
-
-      this.router.navigateByUrl('MainPage')
-    })
+      if (data?.status >= 300) {
+        console.error(data);
+      } else {
+        // Almacenar el usuario logueado en el LocalStorage
+        localStorage.setItem('currentUser', JSON.stringify(data));
+        this.router.navigateByUrl('MainPage');
+      }
+    });
   }
-
 }
