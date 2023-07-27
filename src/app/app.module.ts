@@ -14,9 +14,9 @@ import { RegisterComponent } from './auth/register/register.component';
 import { PagesComponent } from './pages/pages/pages.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { WsCanvasComponent } from './pages/ws-canvas/ws-canvas.component';
-import { FbCanvasComponent } from './pages/fb-canvas/fb-canvas.component';
-import { IgCanvasComponent } from './pages/ig-canvas/ig-canvas.component';
+// import { WsCanvasComponent } from './pages/ws-canvas/ws-canvas.component';
+// import { FbCanvasComponent } from './pages/fb-canvas/fb-canvas.component';
+// import { IgCanvasComponent } from './pages/ig-canvas/ig-canvas.component';
 
 @NgModule({
   declarations: [
@@ -29,9 +29,9 @@ import { IgCanvasComponent } from './pages/ig-canvas/ig-canvas.component';
     NoPagesFoundComponent,
     RegisterComponent,
     PagesComponent,
-    WsCanvasComponent,
-    FbCanvasComponent,
-    IgCanvasComponent,
+    // WsCanvasComponent,
+    // FbCanvasComponent,
+    // IgCanvasComponent,
   ],
   imports: [
     BrowserModule,
