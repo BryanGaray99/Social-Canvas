@@ -9,25 +9,25 @@
       <router-outlet></router-outlet>
 
       <ng-container *ngIf="selectedChatOption === 'ws-chats'">
-        <!-- <app-ws-canvas></app-ws-canvas> -->
+        <app-ws-canvas></app-ws-canvas>
       </ng-container>
 
       <ng-container *ngIf="selectedChatOption === 'fb-canvas'">
-        <!-- <app-fb-canvas></app-fb-canvas> -->
+        <app-fb-canvas></app-fb-canvas>
       </ng-container>
 
       <ng-container *ngIf="selectedChatOption === 'ig-canvas'">
-        <!-- <app-ig-canvas></app-ig-canvas> -->
+        <app-ig-canvas></app-ig-canvas>
       </ng-container>
 
       <footer class="footer">
-        <a routerLink="/Login" routerLinkActive="active" ariaCurrentWhenActive="page">Social Canvas 2023</a>
+        <a routerLink="/Login" routerLinkActive="active" ariaCurrentWhenActive="page">Social Canvas 2023 </a>
         <div class="social-media">
-          <!-- <a href="https://www.facebook.com/profile.php?id=100093665499228" target="_blank"><img src="assets/ws.png" alt="Facebook"></a>
+          <a href="https://www.facebook.com/profile.php?id=100093665499228" target="_blank"><img src="assets/ws.png" alt="Facebook"></a>
           <a href="https://www.facebook.com/profile.php?id=100093665499228" target="_blank"><img src="assets/fb.png" alt="Twitter"></a>
-          <a href="https://www.facebook.com/profile.php?id=100093665499228" target="_blank"><img src="assets/ig.png" alt="Instagram"></a> -->
+          <a href="https://www.facebook.com/profile.php?id=100093665499228" target="_blank"><img src="assets/ig.png" alt="Instagram"></a>
         </div>
-        <p>Síguenos en nuestras redes sociales</p>
+        <p> Síguenos en nuestras redes sociales</p>
       </footer>
     </div>
   </div>
