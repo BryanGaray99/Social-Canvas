@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { LoginService } from './login.service';
-import { FormBuilder } from '@angular/forms';
+import { FormBuilder, Validators } from '@angular/forms';
 import { Router } from "@angular/router";
 @Component({
   selector: 'app-login',
@@ -8,10 +8,12 @@ import { Router } from "@angular/router";
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent {
+  public flagSubmit: boolean = false;
+  public loginError: boolean = false;
 
   loginForm = this.formBuilder.group({
-    email: "",
-    password: "",
+    email: ["", [Validators.required, Validators.email, Validators.maxLength(100)]],
+    password: ["", [Validators.required, Validators.maxLength(100)]],
   });
 
   constructor(
@@ -21,9 +23,11 @@ export class LoginComponent {
   ) {}
 
   onSubmit(): void {
+    this.flagSubmit = true;
+
     this.loginService.loginUser(this.loginForm.value).subscribe(data => {
       if (data?.status >= 300) {
-        console.error(data);
+        this.loginError = true;
       } else {
         // Almacenar el usuario logueado en el LocalStorage
         localStorage.setItem('currentUser', JSON.stringify(data));

@@ -2039,8 +2039,8 @@ pre code {
 }
 
 .form-control:disabled, .form-control[readonly] {
-  background-color: #eceeef;
-  opacity: 1;
+  background-color: #e9ecef !important;
+  opacity: 1 !important;
 }
 
 .form-control:disabled {

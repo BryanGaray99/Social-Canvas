@@ -10,10 +10,14 @@
              *ngFor="let user of userList"
              (click)="selectUserHandler(user.phone)"
         >
-          <img [src]="user?.image"
-               [alt]="user?.firstName"
-               class="avatar"
-          />
+          <div *ngIf="user?.image">
+             <img [src]="user?.image" [alt]="user?.firstName" class="avatar" />
+          </div>
+
+          <div *ngIf="!user?.image">
+            <img src="https://ui-avatars.com/api/?name={{user.firstName}} {{user.lastName}}" class="avatar" />
+          </div>
+
           <span class="username">{{user?.firstName}} {{user?.lastName}}</span>
         </div>
       </div>
@@ -25,10 +29,13 @@
       <ng-container *ngIf="selectedUser">
         <div class="chat-header">
 
-          <img [src]="selectedUser.image"
-                [alt]="selectedUser.firstName"
-                class="avatar"
-          />
+          <div *ngIf="selectedUser?.image">
+            <img [src]="selectedUser.image" [alt]="selectedUser.firstName" class="avatar" />
+         </div>
+
+         <div *ngIf="!selectedUser?.image">
+           <img src="https://ui-avatars.com/api/?name={{selectedUser.firstName}} {{selectedUser.lastName}}" class="avatar" />
+         </div>
           <span class="username">{{selectedUser.firstName}} {{selectedUser.lastName}}</span>
         </div>
 
