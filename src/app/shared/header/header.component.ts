@@ -19,7 +19,7 @@ export class HeaderComponent implements OnInit {
     'fb-canvas': 'fb-header',
     'ig-canvas': 'ig-header'
   };
-  public currentUser: User | null = null; // Asegúrate de importar la interfaz User si no lo has hecho ya
+  public currentUser: User | null = null; 
   public profileImage: string = '';
   public flagSubmit: boolean = false;
   public idUser: any;

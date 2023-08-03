@@ -34,6 +34,8 @@ export class IgCanvasComponent implements OnInit {
   public userList: User[] = [];
   public userSelected = false;
 
+  public selectedUsers: User[] = [];
+
   @ViewChild('chatContainer') chatContainerRef!: ElementRef;
 
   constructor(
@@ -49,6 +51,7 @@ export class IgCanvasComponent implements OnInit {
       this.phone = this.currentUser?.phone || '';
       this.showScreen = true;
       this.loadUsersFromBackend();
+      this.loadSelectedUsersFromLocalStorage();
       if (this.selectedUser) {
         this.loadMessagesFromBackend(this.phone, this.selectedUser.phone);
       }
@@ -101,5 +104,40 @@ export class IgCanvasComponent implements OnInit {
   private scrollToBottom(): void {
     const chatContainer: HTMLElement = this.chatContainerRef.nativeElement;
     chatContainer.scrollTop = chatContainer.scrollHeight;
+  }
+
+  // Function to generate the avatar URL for the given user
+  public generateAvatar(user: any): string {
+    return `https://ui-avatars.com/api/?name=${user.firstName} ${user.lastName}`;
+  }
+
+  onUserSelected(event: any): void {
+    const phone = event.target.value;
+    if (!this.selectedUsers.some((user) => user.phone === phone)) {
+      const selectedUser = this.userList.find((user) => user.phone === phone);
+      if (selectedUser) {
+        this.selectedUsers.push(selectedUser);
+        this.saveSelectedUsersToLocalStorage();
+      }
+    }
+  }
+
+  removeUserFromList(phone: string): void {
+    const index = this.selectedUsers.findIndex((user) => user.phone === phone);
+    if (index !== -1) {
+      this.selectedUsers.splice(index, 1);
+      this.saveSelectedUsersToLocalStorage();
+    }
+  }
+
+  private loadSelectedUsersFromLocalStorage(): void {
+    const selectedUsersData = localStorage.getItem('selectedUsers-ig');
+    if (selectedUsersData) {
+      this.selectedUsers = JSON.parse(selectedUsersData);
+    }
+  }
+
+  private saveSelectedUsersToLocalStorage(): void {
+    localStorage.setItem('selectedUsers-ig', JSON.stringify(this.selectedUsers));
   }
 }
