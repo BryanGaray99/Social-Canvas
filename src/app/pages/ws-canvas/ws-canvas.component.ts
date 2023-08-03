@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { MessageService } from './messages.service';
 import { UserService } from './user.service';
 
@@ -34,6 +34,8 @@ export class WsCanvasComponent implements OnInit {
   public userList: User[] = [];
   public userSelected = false;
 
+  @ViewChild('chatContainer') chatContainerRef!: ElementRef;
+
   constructor(
     private userService: UserService, 
     private messageService: MessageService
@@ -47,7 +49,9 @@ export class WsCanvasComponent implements OnInit {
       this.phone = this.currentUser?.phone || '';
       this.showScreen = true;
       this.loadUsersFromBackend();
-      this.loadMessagesFromBackend(this.phone);
+      if (this.selectedUser) {
+        this.loadMessagesFromBackend(this.phone, this.selectedUser.phone);
+      }
     }
   }
 
@@ -55,18 +59,22 @@ export class WsCanvasComponent implements OnInit {
     this.selectedUser = this.userList.find((user) => user.phone === phone) ?? null;
     this.phone = this.selectedUser?.phone || '';
     this.userSelected = true;
-    this.loadMessagesFromBackend(this.phone);
-  }
+    if (this.currentUser && this.selectedUser) {
+      this.loadMessagesFromBackend(this.currentUser.phone, this.selectedUser.phone);
+    }  }
 
   sendMessage(): void {
     if (!this.currentUser || !this.selectedUser) {
       return;
     }
 
-    this.messageService.sendMessage(this.currentUser.phone, this.selectedUser.phone, this.messageText).subscribe(() => {
-      this.messageText = '';
-      this.loadMessagesFromBackend(this.phone);
-    });
+    this.messageService.sendMessage(
+      this.currentUser.phone, this.selectedUser.phone, this.messageText
+      ).subscribe(() => { 
+        this.messageText = '';
+        if (this.currentUser && this.selectedUser)  {
+          this.loadMessagesFromBackend(this.currentUser.phone, this.selectedUser.phone);
+        }    });
   }
 
   private loadUsersFromBackend(): void {
@@ -77,9 +85,21 @@ export class WsCanvasComponent implements OnInit {
       }
     });
   }
-  private loadMessagesFromBackend(phone: string): void {
-    this.messageService.getMessages(phone).subscribe((messages) => {
+  private loadMessagesFromBackend(senderPhone: string, receiverPhone: string): void {
+    this.messageService.getMessages(senderPhone, receiverPhone).subscribe((messages) => {
       this.messageArray = messages;
+      this.scrollToBottom();
     });
+  }
+
+  ngAfterViewInit(): void {
+    if (this.userSelected) {
+      this.scrollToBottom();
+      this.userSelected = false;
+    }
+  }
+  private scrollToBottom(): void {
+    const chatContainer: HTMLElement = this.chatContainerRef.nativeElement;
+    chatContainer.scrollTop = chatContainer.scrollHeight;
   }
 }

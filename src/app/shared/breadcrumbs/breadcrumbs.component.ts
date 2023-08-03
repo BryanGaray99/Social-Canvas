@@ -8,12 +8,19 @@ import { SharedService } from '../services/shared.service';
 })
 export class BreadcrumbsComponent implements OnInit {
   breadcrumbText: string = '';
+  selectedChatOption: string = '';
+  chatOptionClasses: { [key: string]: string } = {
+    'ws-chats': 'ws-color',
+    'fb-canvas': 'fb-color',
+    'ig-canvas': 'ig-color'
+  };
 
   constructor(private sharedService: SharedService) { }
 
   ngOnInit() {
     this.sharedService.currentChatOption.subscribe((option: string) => {
       this.setBreadcrumbText(option);
+      this.selectedChatOption = option;
     });
   }
 
@@ -21,10 +28,10 @@ export class BreadcrumbsComponent implements OnInit {
     // Define la lógica para establecer el texto del breadcrumb según la opción seleccionada
     switch (option) {
       case 'ws-chats':
-        this.breadcrumbText = 'Whatsapp Chats';
+        this.breadcrumbText = 'Whatsapp Canvas';
         break;
       case 'fb-canvas':
-        this.breadcrumbText = 'Facebook Canvas';
+        this.breadcrumbText = 'Messenger Canvas';
         break;
       case 'ig-canvas':
         this.breadcrumbText = 'Instagram Canvas';

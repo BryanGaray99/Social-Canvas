@@ -4,6 +4,7 @@ import { User } from 'src/app/pages/ws-canvas/ws-canvas.component';
 import { HeaderService } from './header.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from "@angular/router";
+import { SharedService } from '../services/shared.service';
 
 
 @Component({
@@ -12,6 +13,12 @@ import { Router } from "@angular/router";
   styleUrls: ['./header.component.css'],
 })
 export class HeaderComponent implements OnInit {
+  selectedChatOption: string = '';
+  chatOptionClasses: { [key: string]: string } = {
+    'ws-chats': 'ws-header',
+    'fb-canvas': 'fb-header',
+    'ig-canvas': 'ig-header'
+  };
   public currentUser: User | null = null; // Asegúrate de importar la interfaz User si no lo has hecho ya
   public profileImage: string = '';
   public flagSubmit: boolean = false;
@@ -22,6 +29,7 @@ export class HeaderComponent implements OnInit {
     public headerervice: HeaderService,
     private formBuilder: FormBuilder,
     public router: Router,
+    private sharedService: SharedService
   ) {
     this.registerForm = this.formBuilder.group({
       firstName: [null, [Validators.required, Validators.maxLength(100)]],
@@ -36,7 +44,10 @@ export class HeaderComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.getCurrentUserFromLocalStorage(); // Llama al método para obtener los datos del usuario actual del Local Storage
+    this.getCurrentUserFromLocalStorage(); 
+    this.sharedService.currentChatOption.subscribe((option: string) => {
+      this.selectedChatOption = option;
+    });
   }
 
   private getCurrentUserFromLocalStorage(): void {

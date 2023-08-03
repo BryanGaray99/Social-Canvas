@@ -1,17 +1,157 @@
+/* En el archivo main-page.component.css */
+/* Ajustar el tamaño de toda la página dentro del viewport height (vh) */
+#main-wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.page-wrapper {
+  flex: 1;
+  padding-bottom: 60px; 
+  overflow-y: auto; 
+}
+
+/* Estilos para el logo */
+.logo-container {
+  width: 100%;
+  text-align: center;
+}
+
+.logo-container img {
+  width: 120px;
+  border-radius: 50%;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  animation: spin 10s linear infinite; /* Animación para girar el logo */
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.logo-container img:hover {
+  transform: scale(1.1);
+}
+
+/* Estilos para el título del producto */
+.product-title {
+  font-size: 32px;
+  font-weight: bold;
+  margin-bottom: 10px;
+  color: #128c7e;
+  font-family: 'Arial', sans-serif;
+  transition: color 0.3s ease-in-out;
+  margin: 16px;
+}
+
+.product-title:hover {
+  color: #0b614c;
+}
+
+/* Estilos para la descripción */
+.product-description {
+  font-size: 16px;
+  line-height: 1.5;
+  color: #4a4a4a;
+  font-family: 'Arial', sans-serif;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  background-color: #f9f9f9;
+}
+
+.presentation {
+  text-align: center;
+  margin: 20px 0;
+}
+
+/* Estilos para las cards de los creadores */
+.creators {
+  display: flex;
+  justify-content: center;
+}
+
+.canvas-card {
+  width: 160px;
+  height: 160px; 
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+  position: relative;
+  transition: width 0.3s ease-in-out; /* Transición para el ancho al expandirse */
+  margin: 5px 80px 0 80px; /* Separación entre las cards */
+}
+
+.creator-image {
+  height: 160px; 
+  width: 160px;
+  object-fit: cover;
+}
+
+.creator-info {
+  position: absolute;
+  top: 0;
+  left: 100%; 
+  width: 300px; 
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  color: #fff;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  transition: left 0.3s ease-in-out; 
+  text-align: left;
+}
+
+.creator-info h3 {
+  color: #fff; 
+  font-size: 18px; 
+  margin-bottom: 8px; 
+}
+
+.creator-info p {
+  color: #ddd; 
+  font-size: 14px; 
+  margin: 0;
+}
+
+.canvas-card:hover {
+  width: 460px; 
+}
+
+.canvas-card:hover .creator-info {
+  left: 160px;
+}
+
+.flag {
+  width: 20px; 
+  height: 15px;
+  margin-right: 5px; 
+  vertical-align: middle; 
+}
 
 /* Estilos para la barra de navegación */
 nav {
   display: flex;
-  justify-content: center; /* Agregado */
+  justify-content: center;
   align-items: center;
   height: 80px;
-  padding: 0 20px; /* Agregado */
+  padding: 0 20px;
 }
 
 .banner {
   display: flex;
   justify-content: center;
-  align-items: center; /* Agregado */
+  align-items: center;
 }
 
 .banner img {
@@ -26,15 +166,15 @@ nav {
 }
 
 .search-and-user {
-  display: flex; /* Agregado */
-  align-items: center; /* Agregado */
+  display: flex;
+  align-items: center;
   border: 2px solid black;
   border-radius: 8px;
   width: 30%;
 }
 
 input[type="text"] {
-  flex: 1; /* Agregado */
+  flex: 1;
   padding: 10px;
   border-radius: 5px;
   border: none;
@@ -125,8 +265,8 @@ input[type="text"] {
 
 .tools-contenedores {
   display: grid;
-  grid-template-columns: repeat(3, 1fr); /* ajustar el número de columnas aquí */
-  gap: 10px; /* ajustar la separación entre las columnas aquí */
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
   color: white;
   background-color: white;
   margin: 8px 2px 8px 2px;
@@ -136,7 +276,7 @@ input[type="text"] {
 }
 
 .tools-contenedores img {
-  width: 30px; /* ajustar el tamaño de los íconos aquí */
+  width: 30px;
   height: 30px;
   cursor: pointer;
 }
@@ -160,28 +300,10 @@ footer a {
 }
 
 .social-media a {
-  margin: 0 10px;
-}
-
-.social-media img {
-  width: 20px;
+  margin: 0 5px;
 }
 
 p {
   margin: 0;
   color: black;
-}
-
-
-.canvas-card {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 1rem;
-  /* padding-left: 0rem;
-  padding-bottom: 1rem; */
-  padding: 15px;
-}
-
-.max-height-img{
-  max-height: 200px;
 }

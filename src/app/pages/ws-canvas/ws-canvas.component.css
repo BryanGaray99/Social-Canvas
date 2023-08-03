@@ -46,7 +46,7 @@
   overflow: hidden;
 
   .chat-header {
-    height: 70px;
+    height: 10%;
     background-color: #EDEDED;
     display: flex;
     justify-content: flex-start;
@@ -71,15 +71,19 @@
   }
 
   .chat-body {
+    align-items: flex-start;
     background-image: url(../../../assets/bg-image.jpg);
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center center;
-    height: calc(100vh - 125px);
-    padding: 30px;
-    overflow-y: auto;
+    height: 78%;
+    padding: 15px 25px 0 25px;
     color: black;
     font-weight: 400;
+    overflow-y: scroll;
+    scrollbar-width: thin; 
+    scrollbar-color: rgba(0, 0, 0, 0.3) transparent;
+    scroll-behavior: smooth;
 
     .message-container {
       background-color: white;
@@ -98,6 +102,19 @@
         background-color: lightskyblue;
       }
     }
+  }
+  /* WebKit based (Chrome, Safari) custom scrollbar styles */
+  .chat-body::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  .chat-body::-webkit-scrollbar-thumb {
+    background-color: rgba(0, 0, 0, 0.3);
+    border-radius: 4px;
+  }
+
+  .chat-body::-webkit-scrollbar-track {
+    background-color: transparent;
   }
 
   .chat-footer {

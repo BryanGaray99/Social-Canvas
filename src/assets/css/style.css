@@ -999,9 +999,6 @@ File: scss
   padding-bottom: 60px;
   position: relative; }
 
-.container-fluid {
-  padding: 8px 12px; }
-
 .card {
   margin-bottom: 30px; }
   .card .card-subtitle {

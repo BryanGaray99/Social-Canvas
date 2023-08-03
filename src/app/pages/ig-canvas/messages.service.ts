@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { Message } from './ws-canvas.component';
+import { Message } from './ig-canvas.component';
 
 @Injectable({
   providedIn: 'root',

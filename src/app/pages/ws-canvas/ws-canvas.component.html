@@ -39,7 +39,7 @@
           <span class="username">{{selectedUser.firstName}} {{selectedUser.lastName}}</span>
         </div>
 
-        <div class="chat-body">
+        <div class="chat-body" #chatContainer>
           <div *ngFor="let item of messageArray"
             [ngClass]="{ 'same-user': item?.sender === currentUser?.firstName }"
           >
