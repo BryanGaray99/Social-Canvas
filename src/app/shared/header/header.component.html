@@ -110,7 +110,10 @@
                     <!-- <li role="separator" class="divider"></li> -->
                     <!-- <li><a href="#"><i class="ti-settings"></i> Account Setting</a></li> -->
                     <li role="separator" class="divider"></li>
-                    <li><a href="/login"><i class="fa fa-power-off"></i> Logout</a></li>
+                    <li><a href="/login"><i class="fa fa-power-off"></i> Cerrar Sesión</a></li>
+                    <li role="separator" class="divider"></li>
+                    <!-- <li><button onClick=""><i class="fa fa-power-off"></i> Desactivar usuario</button></li> -->
+                      <li><a href="#" data-toggle="modal" data-target="#deleteModal" data-whatever="@mdo"><i class="fa fa-power-off"></i> Desactivar usuario</a></li>
                   </ul>
                 </div>
               </li>
@@ -217,6 +220,24 @@
               <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
               <button type="button" class="btn btn-primary">Send message</button>
           </div> -->
+      </div>
+  </div>
+</div>
+
+<div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel1">
+  <div class="modal-dialog" role="document">
+      <div class="modal-content">
+          <div class="modal-header">
+              <h4 class="modal-title" id="exampleModalLabel1">Desactivar Usuario</h4>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          </div>
+          <div class="modal-body">
+            <h3>¿Esta seguro que desea desactivar el usuario? Esta acción no podra ser revertida.</h3>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            <button type="button" (click)="deleteUser()" data-dismiss="modal" class="btn btn-danger">Desactivar</button>
+          </div>
       </div>
   </div>
 </div>

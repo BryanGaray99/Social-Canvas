@@ -69,4 +69,11 @@ export class HeaderComponent implements OnInit {
       })
     }
   }
+
+  deleteUser() {
+    this.headerervice.deleteUser(this.idUser).subscribe(data => {
+      alert('Usuario desactivado')
+      this.router.navigateByUrl('login');
+    })
+  }
 }
