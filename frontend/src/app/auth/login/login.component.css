@@ -1,0 +1,81 @@
+/*
+Template Name: Admin pro Admin
+Author: Wrappixel
+Email: niravjoshi87@gmail.com
+File: scss
+*/
+/*
+Template Name: Admin Pro Admin
+Author: Wrappixel
+Email: niravjoshi87@gmail.com
+File: scss
+*/
+/*Theme Colors*/
+/*bootstrap Color*/
+/*Light colors*/
+/*Normal Color*/
+/*Extra Variable*/
+/*******************
+Login register and recover password Page
+******************/
+
+.login-register {
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  width: 100%;
+  height: 100%;
+  padding: 10% 0;
+  position: fixed;
+}
+
+.formulario {
+    margin-top: 60px;
+}
+
+.login-box {
+  width: 450px;
+  margin-top: 30px; 
+  margin-left: auto;
+  margin-right: 50px;
+  border-radius: 24px;
+}
+
+.login-box .footer {
+    width: 100%;
+    left: 0px;
+    right: 0px;
+}
+
+.login-box .social {
+    display: block;
+    margin-bottom: 30px;
+}
+
+#recoverform {
+    display: none;
+}
+
+.login-sidebar {
+    padding: 0px;
+    margin-top: 0px;
+}
+
+
+.login-register.login-sidebar {
+    background: linear-gradient(45deg, rgba(44, 133, 110, 0.95), rgba(44, 163, 162, 0.95), rgba(191, 250, 230, 0.95)), url("src\assets\peopleLogin.jpg");
+    animation: gradientAnimation 60s linear infinite;
+    background-size: 150% 150%;
+}
+
+@keyframes gradientAnimation {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}

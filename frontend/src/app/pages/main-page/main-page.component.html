@@ -1,0 +1,73 @@
+<div id="main-wrapper">
+  <app-header></app-header>
+  <app-sidebar></app-sidebar>
+  <div class="page-wrapper">
+
+    <!-- Contenido de presentación (solo se mostrará si no hay ninguna opción seleccionada) -->
+    <div class="presentation" *ngIf="selectedChatOption === ''">
+      <div class="logo-container">
+        <!-- Aquí colocarías el logo giratorio -->
+        <img src="assets/icon.png" alt="Logo Giratorio">
+      </div>
+      <div class="product-title">
+        <!-- Título del producto -->
+        <h1>Social Canvas</h1>
+      </div>
+      <div class="product-description">
+        <!-- Descripción breve del producto -->
+        <p>Social Canvas esta pensada para optimizar tu tiempo. ⏲  </p>
+        <p>Tener todas tus redes sociales en un solo lugar abre una ventana de posibilidades. 🚀 </p>
+        <p>Organiza tu contenido social con tu manera única de hacer las cosas. ✨ </p>
+        <p>Conoce a sus creadores! 💻 </p>
+      </div>
+    </div>
+
+    <!-- Cards de los creadores (solo se mostrarán si no hay ninguna opción seleccionada) -->
+    <div class="creators" *ngIf="selectedChatOption === ''">
+      <div class="canvas-card" *ngFor="let creator of creators">
+        <img class="creator-image" [src]="creator.image" [alt]="creator.name">
+        <div class="creator-info">
+          <h3>{{ creator.name }}</h3>
+          <p>Edad: {{ creator.age }} años</p>
+          <p>Nacionalidad: <img [src]="creator.flag" [alt]="creator.nationality" class="flag">{{ creator.nationality }}</p>
+          <p>Correo: {{ creator.correo }}</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Contenido de las opciones -->
+    <div class="container-fluid"> 
+      <router-outlet></router-outlet>
+     
+      <!-- Contenido de la opción de chats de WhatsApp -->
+      <ng-container *ngIf="selectedChatOption === 'ws-chats'">
+        <app-breadcrumbs></app-breadcrumbs>
+        <app-ws-canvas></app-ws-canvas>
+      </ng-container>
+
+      <!-- Contenido de la opción de chats de Facebook -->
+      <ng-container *ngIf="selectedChatOption === 'fb-canvas'">
+        <app-breadcrumbs></app-breadcrumbs>
+        <app-fb-canvas></app-fb-canvas>
+      </ng-container>
+
+      <!-- Contenido de la opción de chats de Instagram -->
+      <ng-container *ngIf="selectedChatOption === 'ig-canvas'">
+        <app-breadcrumbs></app-breadcrumbs>
+        <app-ig-canvas></app-ig-canvas>
+      </ng-container>
+
+      <footer class="footer">
+        <a routerLink="/Login" routerLinkActive="active" ariaCurrentWhenActive="page">Social Canvas 2023 </a>
+        <div class="social-media">
+          <a href="https://www.facebook.com/profile.php?id=100093665499228" target="_blank"><img style="width: 25px;" src="assets/whatsapp-logo.svg" alt="Facebook"></a>
+          <a href="https://www.facebook.com/profile.php?id=100093665499228" target="_blank"><img style="width: 35px;" src="assets/Messenger-Logo.png" alt="Twitter"></a>
+          <a href="https://www.facebook.com/profile.php?id=100093665499228" target="_blank"><img style="width: 20px;" src="assets/Instagram_logo.svg.webp" alt="Instagram"></a>
+        </div>
+        <p> Síguenos en nuestras redes sociales</p>
+      </footer>
+    </div>
+
+
+  </div>
+</div>
